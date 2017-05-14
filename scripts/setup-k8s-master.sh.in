@@ -45,6 +45,8 @@ cloudProvider: aws
 kubernetesVersion: $(cat /etc/kubernetes_community_ami_version)
 apiServerCertSANs:
 - ${LB_DNS}
+controllerManagerExtraArgs:
+  horizontal-pod-autoscaler-use-rest-clients: true
 EOF
 
 # Initialize master node
