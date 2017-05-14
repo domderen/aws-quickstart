@@ -28,6 +28,8 @@ test -n "{{ClusterToken}}"
 test -n "{{NetworkingProviderUrl}}"
 test -n "{{Region}}"
 
+ENABLE_CUSTOM_METRICS="true"
+
 # kubeadm wants lowercase for DNS (as it probably should)
 LB_DNS=$(echo "{{LoadBalancerDns}}" | tr 'A-Z' 'a-z')
 
