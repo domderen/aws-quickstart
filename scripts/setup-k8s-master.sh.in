@@ -28,8 +28,6 @@ test -n "{{ClusterToken}}"
 test -n "{{NetworkingProviderUrl}}"
 test -n "{{Region}}"
 
-ENABLE_CUSTOM_METRICS="true"
-
 # kubeadm wants lowercase for DNS (as it probably should)
 LB_DNS=$(echo "{{LoadBalancerDns}}" | tr 'A-Z' 'a-z')
 
@@ -45,11 +43,6 @@ cloudProvider: aws
 kubernetesVersion: $(cat /etc/kubernetes_community_ami_version)
 apiServerCertSANs:
 - ${LB_DNS}
-controllerManagerExtraArgs:
-  horizontal-pod-autoscaler-use-rest-clients: "true"
-  horizontal-pod-autoscaler-sync-period: "10s"
-apiServerExtraArgs:
-  runtime-config: "api/all=true"
 EOF
 
 # Initialize master node
