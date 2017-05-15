@@ -43,9 +43,6 @@ cloudProvider: aws
 kubernetesVersion: $(cat /etc/kubernetes_community_ami_version)
 apiServerCertSANs:
 - ${LB_DNS}
-controllerManagerExtraArgs:
-  horizontal-pod-autoscaler-use-rest-clients: "true"
-  horizontal-pod-autoscaler-sync-period: "10s"
 apiServerExtraArgs:
   runtime-config: "api/all=true"
 EOF
